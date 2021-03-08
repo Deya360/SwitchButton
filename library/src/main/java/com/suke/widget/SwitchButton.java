@@ -122,6 +122,10 @@ public class SwitchButton extends View implements Checkable {
                 R.styleable.SwitchButton_sb_border_width,
                 dp2pxInt(1));//dp2pxInt(1);
 
+        extraPadding = optPixelSize(typedArray,
+               R.styleable.SwitchButton_sb_extra_padding,
+               0);
+
         checkLineColor = optColor(typedArray,
                 R.styleable.SwitchButton_sb_checkline_color,
                 Color.WHITE);//Color.WHITE;
@@ -220,7 +224,7 @@ public class SwitchButton extends View implements Checkable {
         super.onSizeChanged(w, h, oldw, oldh);
 
 
-        float viewPadding = Math.max(shadowRadius + shadowOffset, borderWidth);
+        float viewPadding = Math.max(shadowRadius + shadowOffset + extraPadding, borderWidth);
 
         height = h - viewPadding - viewPadding;
         width = w - viewPadding - viewPadding;
@@ -876,6 +880,12 @@ public class SwitchButton extends View implements Checkable {
      * 边框宽度px
      */
     private int borderWidth;
+
+    /**
+     * Extra padding, will result in change of the thickness of 'borderWidth' without inversly
+     * changing the size of the 'buttonRadius'
+     */
+    private int extraPadding;
 
     /**
      * 打开指示线颜色
