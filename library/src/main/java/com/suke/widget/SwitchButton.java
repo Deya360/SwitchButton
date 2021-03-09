@@ -10,6 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -60,6 +61,18 @@ public class SwitchButton extends View implements Checkable {
     public SwitchButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs);
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.background = backgroundColor;
+    }
+
+    public void setCheckedButtonColor(int checkedButtonColor) {
+        this.checkedButtonColor = checkedButtonColor;
+    }
+
+    public void setUncheckedButtonColor(int uncheckButtonColor) {
+        this.uncheckButtonColor = uncheckButtonColor;
     }
 
     @Override
